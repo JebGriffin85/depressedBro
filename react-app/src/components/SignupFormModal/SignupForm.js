@@ -73,10 +73,10 @@ const SignUpForm = () => {
       <div>
        
           <input type="radio" name="avatar" 
-          value="https://i.ibb.co/CwM7pX5/Screen-Shot-2021-05-04-at-2-42-36-PM.png"
+          value="https://i.ibb.co/fHx1v4N/Screen-Shot-2021-05-05-at-10-14-43-AM.png"
           onChange={updateAvatar} />
          
-        <img src="https://i.ibb.co/CwM7pX5/Screen-Shot-2021-05-04-at-2-42-36-PM.png" />
+        <img src="https://i.ibb.co/fHx1v4N/Screen-Shot-2021-05-05-at-10-14-43-AM.png" />
           
 
         <input type="radio" name="avatar"

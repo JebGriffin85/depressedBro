@@ -8,12 +8,12 @@ post_routes = Blueprint('posts', __name__)
 
 @post_routes.route('')
 def get_posts():
-    res = Post.query.all()
+    res = Post.query.order_by(Post.createdAt.desc()).all()
     return {'posts': [post.to_dict() for post in res]}
 
 
 @post_routes.route('', methods=['POST'])
-# @login_required
+@login_required
 def create_post():
     user_id = current_user.get_id()
     form = PostForm()
@@ -25,3 +25,10 @@ def create_post():
         db.session.commit()
         return {new_post.to_dict()['id']: new_post.to_dict()}
     return {'error': 'could not post'}
+
+
+@post_routes.route('<int:id>')
+def get_post(id):
+    print('here-------------')
+    single_post = Post.query.get(id)
+    return single_post.to_dict()

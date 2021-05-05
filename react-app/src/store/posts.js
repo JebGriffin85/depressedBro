@@ -1,9 +1,15 @@
-const GET_POSTS = 'post/GET_POSTS'
-const ADD_POST = 'post/ADD_POST'
+const GET_POSTS = 'post/GET_POSTS';
+const GET_SINGLE_POST = 'post/GET_SINGLE_POST';
+const ADD_POST = 'post/ADD_POST';
 
 const getPosts = (posts) => ({
     type: GET_POSTS,
     payload: posts
+});
+
+const getSinglePost = (post) => ({
+    type: GET_SINGLE_POST,
+    payload: post
 });
 
 const addPost = (post) => ({
@@ -11,8 +17,22 @@ const addPost = (post) => ({
     payload: post
 });
 
+export const thunk_getPosts = () => async (dispatch) => {
+    const res = await fetch('/api/posts')
+    const data = await res.json()
+    if (data.errors) return;
+    dispatch(getPosts(data));
+};
+
+export const thunk_getSinglePost = (id) => async (dispatch) => {
+    const res = await fetch(`/api/posts/${id}`);
+    const data = await res.json();
+    if (data.errors) return;
+    dispatch(getSinglePost(data));
+};
+
 export const thunk_addPost = ({ title, body} ) => async (dispatch) => {
-    const res = await fetch('api/posts', {
+    const res = await fetch('/api/posts', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -25,31 +45,22 @@ export const thunk_addPost = ({ title, body} ) => async (dispatch) => {
     dispatch(addPost(data));
 };
 
-export const thunk_getPosts = () => async (dispatch) => {
-    const res = await fetch('api/posts');
-    const data = await res.json();
-    if (data.errors){
-        return;
-    }
-    dispatch(getPosts(data));
-};
-
-
 const postReducer = (state = {}, action) => {
-    let newState;
     switch(action.type) {
         
         case GET_POSTS:
         const posts = action.payload.posts;
-        const allPosts = {};
+        const allPosts = {}
         for (const post of posts) {
-            allPosts[post.id] = post
+            allPosts[post.id] = post;
         };
         return allPosts;
 
+        case GET_SINGLE_POST:
+            return { post: action.payload };
+
         case ADD_POST:
-            console.log(action.payload)
-            return { ...state, ...action.payload }
+            return { ...state, ...action.payload };
         default:
             return state;
     };

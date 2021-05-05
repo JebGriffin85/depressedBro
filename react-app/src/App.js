@@ -10,6 +10,7 @@ import PostForm from './components/auth/PostForm'
 import User from "./components/User";
 import { authenticate } from "./store/session";
 import Homepage from './components/Homepage/index';
+import SinglePost from './components/SinglePost/index';
 
 function App() {
 
@@ -31,20 +32,11 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
-        <Route path="/login" exact={true}>
-          <LoginForm />
-        </Route>
-        <Route path="/sign-up" exact={true}>
-          <SignUpForm />
-        </Route>
-        <ProtectedRoute path="/createpost" exact={true} >
-          <PostForm />
-        </ProtectedRoute>
-        <ProtectedRoute path="/users/:userId" exact={true} >
-          <User />
-        </ProtectedRoute>
         <Route path="/" exact={true}>
           <Homepage/>
+        </Route>
+        <Route path='/posts/:id' exact={true}>
+          <SinglePost />
         </Route>
       </Switch>
     </BrowserRouter>

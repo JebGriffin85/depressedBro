@@ -36,9 +36,6 @@ const NavBar = () => {
           <NavLink to="/">
             Home
           </NavLink>
-          <NavLink to="/createpost">
-            create
-          </NavLink>
           
           {sessionLinks}
     </nav>

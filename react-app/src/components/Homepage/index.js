@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 function Homepage() {
     const dispatch = useDispatch();
     const posts = useSelector((state) => state.postReducer);
-
+    const reversedPosts = Object.values(posts).reverse();
 
 
     useEffect(() => {
@@ -17,14 +17,15 @@ function Homepage() {
     return (
        <>
        
-       {Object.values(posts).map((post) => (
+       {reversedPosts.map((post) => (
            
            <div key={post.id}>
            <Link to={`/posts/${post.id}`}>
+            
            <img src={post.avatar}/>
            {post.title}
            </Link>
-            </div>
+           </div>
        ))}
        </>
     )
