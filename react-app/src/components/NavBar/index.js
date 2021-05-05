@@ -5,7 +5,7 @@ import LogoutButton from '../auth/LogoutButton';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import { useHistory } from "react-router-dom";
-import PostForm from '../../components/auth/PostForm';
+import PostFormModal from '../../components/CreatePostModal';
 
 const NavBar = () => {
   const history = useHistory();
@@ -19,7 +19,7 @@ const NavBar = () => {
     sessionLinks = (
       <>
         <LogoutButton />
-        
+        <PostFormModal />
       </>
     );
   } else {
