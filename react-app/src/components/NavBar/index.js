@@ -1,0 +1,48 @@
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import LogoutButton from '../auth/LogoutButton';
+import LoginFormModal from '../LoginFormModal';
+import SignupFormModal from '../SignupFormModal';
+import { useHistory } from "react-router-dom";
+import PostForm from '../../components/auth/PostForm';
+
+const NavBar = () => {
+  const history = useHistory();
+
+  const sessionUser = useSelector(state => state.session.user);
+
+
+
+  let sessionLinks;
+  if (sessionUser) {
+    sessionLinks = (
+      <>
+        <LogoutButton />
+        
+      </>
+    );
+  } else {
+    sessionLinks = (
+      <>
+        <LoginFormModal/>
+        <SignupFormModal/>
+
+      </>
+    );
+  }
+  return (
+    <nav >
+          <NavLink to="/">
+            Home
+          </NavLink>
+          <NavLink to="/createpost">
+            create
+          </NavLink>
+          
+          {sessionLinks}
+    </nav>
+  );
+}
+
+export default NavBar;

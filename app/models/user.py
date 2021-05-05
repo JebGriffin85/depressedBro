@@ -6,10 +6,13 @@ class User(db.Model, UserMixin):
   __tablename__ = 'users'
 
   id = db.Column(db.Integer, primary_key = True)
-  username = db.Column(db.String(40), nullable = False, unique = True)
+  firstname = db.Column(db.String(40), nullable = False, unique = False)
+  lastname = db.Column(db.String(40), nullable = False, unique = True)
+  avatar = db.Column(db.Text, nullable = False, unique = False)
   email = db.Column(db.String(255), nullable = False, unique = True)
   hashed_password = db.Column(db.String(255), nullable = False)
-
+  posts = db.relationship('Post', backref='users', cascade='all, delete')
+  comments = db.relationship('Comment', backref='users', cascade='all, delete')
 
   @property
   def password(self):
@@ -28,6 +31,10 @@ class User(db.Model, UserMixin):
   def to_dict(self):
     return {
       "id": self.id,
-      "username": self.username,
-      "email": self.email
+      "firstname": self.firstname,
+      "lastname": self.lastname,
+      "avatar": self.avatar,
+      "email": self.email,
+      "posts": [post.to_dict() for post in self.posts],
+      "comments": [comment.to_dict() for comment in self.comments]
     }
