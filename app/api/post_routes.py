@@ -46,3 +46,24 @@ def post_comment(postId):
         db.session.commit()
         return {new_comment.to_dict()['id']: new_comment.to_dict()}
     return {'error': 'could not post'}
+
+
+@post_routes.route("/<int:postId>/comments/<int:commentId>", methods=["DELETE"])
+@login_required
+def comment_delete(postId, commentId):
+    old_comment = Comment.query.get(commentId)
+    user_id = int(current_user.get_id())
+    comment_user = Comment.query.get(commentId).userId
+
+    if user_id == comment_user:
+        db.session.delete(old_comment)
+        db.session.commit()
+        return {"status": 200}
+    return {"status": 400}
+
+
+@post_routes.route("/comments/<int:commentId>", methods=["PUT", "GET"])
+# @login_required
+def comment_edit(commentId):
+    print('1111-------11111------', request.data)
+    return request.data
