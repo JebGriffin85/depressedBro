@@ -16,7 +16,7 @@ const CommentForm = ({ postId }) => {
       postId,
     };
     dispatch(thunk_addComment(payload));
-    setBodyText('')
+    setBody('')
     };
 
   return (

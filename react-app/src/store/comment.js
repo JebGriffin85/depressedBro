@@ -11,7 +11,6 @@ export const thunk_addComment = ({ postId, body }) => async (dispatch) => {
     headers: {
       "Content-Type": "application/json",
     },
-    credentials: "include",
     body: JSON.stringify({ postId, body }),
   });
 
@@ -22,11 +21,13 @@ export const thunk_addComment = ({ postId, body }) => async (dispatch) => {
   dispatch(addComment(data));
 };
 
-export default function commentReducer(state = {}, action) {
+function commentReducer(state = {}, action) {
   switch (action.type) {
     case ADD_COMMENT:
       return { ...state, ...action.payload };
     default:
       return state;
-  }
-}
+  };
+};
+
+export default commentReducer;

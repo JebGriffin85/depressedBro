@@ -3,21 +3,23 @@ import { useDispatch, useSelector } from 'react-redux';
 // import { thunk_getPosts } from '../../store/posts';
 import { useParams, useHistory } from 'react-router-dom';
 import { thunk_getSinglePost } from '../../store/posts';
+import CommentForm from '../CommentForm/index';
 
 function SinglePost() {
     const history = useHistory();
     const dispatch = useDispatch();
     const { id } = useParams();
-    // const post = useSelector((state) => state.postReducer[id])
-    const post = useSelector((state) => state.postReducer)
-    
+    const comments = useSelector((state) => state.commentReducer);
+    const post = useSelector((state) => state.postReducer);
+    const commentVals = Object.values(comments);
+
     const goBack = () => {
         history.goBack()
     };
 
     useEffect(() => {
         dispatch(thunk_getSinglePost(id))
-    }, [dispatch]);
+    }, [dispatch, commentVals.length]);
 
 
     return(
@@ -32,7 +34,7 @@ function SinglePost() {
                 </div>
             ))}
         </div>
-        
+        <CommentForm postId={post.id} />
       
 
         </>

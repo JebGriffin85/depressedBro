@@ -1,7 +1,7 @@
 from flask import Blueprint, redirect, request
 from app.models import Post, User, db, Comment
 from flask_login import login_required, current_user
-from app.forms import PostForm
+from app.forms import PostForm, CommentForm
 
 post_routes = Blueprint('posts', __name__)
 
@@ -29,6 +29,20 @@ def create_post():
 
 @post_routes.route('<int:id>')
 def get_post(id):
-    print('here-------------')
     single_post = Post.query.get(id)
     return single_post.to_dict()
+
+
+@post_routes.route('/<int:postId>/comments', methods=['POST'])
+@login_required
+def post_comment(postId):
+    user_id = current_user.get_id()
+    form = CommentForm()
+    form["csrf_token"].data = request.cookies["csrf_token"]
+    if form.validate_on_submit():
+        new_comment = Comment(body=form.data['body'],
+                              userId=user_id, postId=postId)
+        db.session.add(new_comment)
+        db.session.commit()
+        return {new_comment.to_dict()['id']: new_comment.to_dict()}
+    return {'error': 'could not post'}

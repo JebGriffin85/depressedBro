@@ -7,7 +7,8 @@ import commentReducer from './comment';
 
 const rootReducer = combineReducers({
     session,
-    postReducer
+    postReducer,
+    commentReducer
 });
 
 let enhancer;
