@@ -20,7 +20,7 @@ function Homepage() {
        
        {reversedPosts.map((post) => (
            
-           <div key={post.id}>
+           <div key={post?.id}>
            <Link to={`/posts/${post.id}`}>
             
            <img className='avatar' src={post.avatar}/>
