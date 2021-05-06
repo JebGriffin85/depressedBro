@@ -73,5 +73,5 @@ def edit_comment(commentId):
         current_comment.body = form.data['body']
         db.session.add(current_comment)
         db.session.commit()
-        return {'success'}
+        return current_comment.to_dict()
     return {'error': 'could not post'}

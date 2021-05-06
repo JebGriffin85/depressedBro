@@ -10,7 +10,7 @@ function Homepage() {
     const reversedPosts = Object.values(posts).reverse();
 
 
-    useEffect(() => {
+    useEffect(() =>  {
         dispatch(thunk_getPosts())
     }, [dispatch]);
 

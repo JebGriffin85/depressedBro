@@ -17,7 +17,7 @@ const EditCommentForm = ({ id, oldBody, setShowModal, postId }) => {
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({body})
     })
-    setShowModal(false);
+    await setShowModal(false);
     dispatch(thunk_getSinglePost(postId));
     };
 

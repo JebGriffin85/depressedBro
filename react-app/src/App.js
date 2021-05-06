@@ -38,6 +38,9 @@ function App() {
         <Route path='/posts/:id' exact={true}>
           <SinglePost />
         </Route>
+        <Route path='/users/:id'>
+          <h1>here</h1>
+        </Route>
       </Switch>
     </BrowserRouter>
   );
