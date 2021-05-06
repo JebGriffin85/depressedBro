@@ -30,7 +30,6 @@ const SignUpForm = () => {
 
   const updateAvatar = (e) => {
     setAvatar(e.target.value);
-    console.log(avatar);
   };
 
   const updateEmail = (e) => {
@@ -71,26 +70,26 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div>
-       
+          <label>choose your bro</label>
           <input type="radio" name="avatar" 
           value="https://i.ibb.co/fHx1v4N/Screen-Shot-2021-05-05-at-10-14-43-AM.png"
           onChange={updateAvatar} />
          
-        <img src="https://i.ibb.co/fHx1v4N/Screen-Shot-2021-05-05-at-10-14-43-AM.png" />
+        <img className='avatar' src="https://i.ibb.co/fHx1v4N/Screen-Shot-2021-05-05-at-10-14-43-AM.png" />
           
 
         <input type="radio" name="avatar"
           value="https://i.ibb.co/V2WNZj2/Screen-Shot-2021-05-04-at-2-42-43-PM.png"
           onChange={updateAvatar} />
         
-        <img src="https://i.ibb.co/V2WNZj2/Screen-Shot-2021-05-04-at-2-42-43-PM.png" />
+        <img className='avatar' src="https://i.ibb.co/V2WNZj2/Screen-Shot-2021-05-04-at-2-42-43-PM.png" />
        
 
         <input type="radio" name="avatar"
           value="https://i.ibb.co/hgZWqxp/Screen-Shot-2021-05-04-at-2-42-56-PM.png"
           onChange={updateAvatar} />
         
-        <img src="https://i.ibb.co/hgZWqxp/Screen-Shot-2021-05-04-at-2-42-56-PM.png" />
+        <img className='avatar' src="https://i.ibb.co/hgZWqxp/Screen-Shot-2021-05-04-at-2-42-56-PM.png" />
         
       </div>
       <div>
@@ -106,6 +105,7 @@ const SignUpForm = () => {
         <label>Password</label>
         <input
           type="password"
+          placeholder="prob not 'password'"
           name="password"
           onChange={updatePassword}
           value={password}
@@ -115,6 +115,7 @@ const SignUpForm = () => {
         <label>Repeat Password</label>
         <input
           type="password"
+          placeholder="or maybe..."
           name="repeat_password"
           onChange={updateRepeatPassword}
           value={repeatPassword}

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { thunk_getPosts } from '../../store/posts';
 import { Link } from 'react-router-dom';
+import './homepage.css'
 
 function Homepage() {
     const dispatch = useDispatch();
@@ -22,7 +23,7 @@ function Homepage() {
            <div key={post.id}>
            <Link to={`/posts/${post.id}`}>
             
-           <img src={post.avatar}/>
+           <img className='avatar' src={post.avatar}/>
            {post.title}
            </Link>
            </div>

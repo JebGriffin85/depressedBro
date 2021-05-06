@@ -57,7 +57,7 @@ const postReducer = (state = {}, action) => {
         return allPosts;
 
         case GET_SINGLE_POST:
-            return { post: action.payload };
+            return action.payload;
 
         case ADD_POST:
             return { ...state, ...action.payload };
