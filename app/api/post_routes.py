@@ -62,8 +62,16 @@ def comment_delete(postId, commentId):
     return {"status": 400}
 
 
-@post_routes.route("/comments/<int:commentId>", methods=["PUT", "GET"])
-# @login_required
-def comment_edit(commentId):
-    print('1111-------11111------', request.data)
-    return request.data
+@post_routes.route("/comments/<int:commentId>", methods=["PUT"])
+@login_required
+def edit_comment(commentId):
+    current_comment = Comment.query.get(int(commentId))
+    user_id = current_user.get_id()
+    form = CommentForm()
+    form["csrf_token"].data = request.cookies["csrf_token"]
+    if form.validate_on_submit():
+        current_comment.body = form.data['body']
+        db.session.add(current_comment)
+        db.session.commit()
+        return {'success'}
+    return {'error': 'could not post'}

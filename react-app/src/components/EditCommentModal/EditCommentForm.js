@@ -2,20 +2,25 @@
 import React, { useState } from "react";
 import { thunk_addComment } from "../../store/comment";
 import { useDispatch } from "react-redux";
+import { thunk_getSinglePost } from '../../store/posts';
 
 
 
-
-const EditCommentForm = ({ id, oldBody, postId }) => {
+const EditCommentForm = ({ id, oldBody, setShowModal, postId }) => {
   const [body, setBody] = useState(`${oldBody}`);
   const dispatch = useDispatch();
 
-  const submitComment = (event) => {
-    event.preventDefault();
-    
-    setBody('')
+  const submitComment = async (e) => {
+    e.preventDefault();
+    await fetch(`/api/posts/comments/${id}`, {
+        method: 'PUT',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({body})
+    })
+    setShowModal(false);
+    dispatch(thunk_getSinglePost(postId));
     };
-    
+
   return (
     <>
       <form className="comment-form" onSubmit={submitComment}>
