@@ -6,11 +6,11 @@ import { useDispatch } from "react-redux";
 
 
 const CommentForm = ({ postId }) => {
-  const [body, setBody] = useState("");
+  const [body, setBody] = useState('');
   const dispatch = useDispatch();
 
-  const submitComment = (event) => {
-    event.preventDefault();
+  const submitComment = (e) => {
+    e.preventDefault();
     const payload = {
       body,
       postId,

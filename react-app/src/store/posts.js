@@ -1,6 +1,15 @@
 const GET_POSTS = 'post/GET_POSTS';
 const GET_SINGLE_POST = 'post/GET_SINGLE_POST';
 const ADD_POST = 'post/ADD_POST';
+const GET_USER_POST = 'post/GET_USER_POST';
+const DELETE_POST = 'post/DELETE_POST';
+
+const deletePost = (post) => {
+    return ({
+        type: DELETE_POST,
+        payload: post
+    });
+};
 
 const getPosts = (posts) => ({
     type: GET_POSTS,
@@ -17,9 +26,28 @@ const addPost = (post) => ({
     payload: post
 });
 
+const getUserPost = (posts) => ({
+    type: GET_USER_POST,
+    payload: posts
+});
+
+export const thunk_deletePost = (id) => async (dispatch) => {
+  await fetch(`/api/posts/${id}`, {
+    method: 'DELETE'
+  });
+  dispatch(deletePost(id));
+};
+
+export const thunk_getUserPosts = (id) => async (dispatch) => {
+    const res = await fetch(`/api/posts/user/${id}`);
+    const data = await res.json();
+    if (data.errors) return;
+    dispatch(getUserPost(data));
+};
+
 export const thunk_getPosts = () => async (dispatch) => {
-    const res = await fetch('/api/posts')
-    const data = await res.json()
+    const res = await fetch('/api/posts');
+    const data = await res.json();
     if (data.errors) return;
     dispatch(getPosts(data));
 };
@@ -55,6 +83,17 @@ const postReducer = (state = {}, action) => {
             allPosts[post.id] = post;
         };
         return allPosts;
+
+        case GET_USER_POST:
+        const newPosts = action.payload.posts;
+        const userPosts = {}
+        for (const post of newPosts) {
+            userPosts[post.id] = post;
+        };
+        return userPosts;
+
+        case DELETE_POST:
+            delete state[action.payload]
 
         case GET_SINGLE_POST:
             return action.payload;

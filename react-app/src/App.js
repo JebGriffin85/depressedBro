@@ -11,6 +11,7 @@ import User from "./components/User";
 import { authenticate } from "./store/session";
 import Homepage from './components/Homepage/index';
 import SinglePost from './components/SinglePost/index';
+import ProfilePage from './components/ProfilePage/index';
 
 function App() {
 
@@ -38,9 +39,9 @@ function App() {
         <Route path='/posts/:id' exact={true}>
           <SinglePost />
         </Route>
-        <Route path='/users/:id'>
-          <h1>here</h1>
-        </Route>
+        <ProtectedRoute path='/profile'>
+          <ProfilePage/>
+        </ProtectedRoute>
       </Switch>
     </BrowserRouter>
   );

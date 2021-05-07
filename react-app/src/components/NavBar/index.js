@@ -20,6 +20,9 @@ const NavBar = () => {
       <>
         <LogoutButton />
         <PostFormModal />
+        <NavLink to='/profile'>
+          My Profile
+        </NavLink>
       </>
     );
   } else {
