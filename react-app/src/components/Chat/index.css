@@ -1,0 +1,9 @@
+.container {
+    Overflow-y: auto;
+    word-wrap: break-word;
+    height: 225px;
+    display: flexbox;
+    width: 200px;
+    border: 1px solid;
+    align-items: center;
+}

@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { thunk_getPosts } from '../../store/posts';
 import { Link } from 'react-router-dom';
 import './homepage.css'
+import ChatAccordion from '../Accordian/index';
+import banner from './banner.png'
 
 function Homepage() {
     const dispatch = useDispatch();
@@ -17,10 +19,10 @@ function Homepage() {
 
     return (
        <>
-       
+       <img src={banner}/>
        {reversedPosts.map((post) => (
            
-           <div key={post?.id}>
+           <div key={post.id}>
            <Link to={`/posts/${post.id}`}>
             
            <img className='avatar' src={post.avatar}/>
@@ -28,6 +30,7 @@ function Homepage() {
            </Link>
            </div>
        ))}
+       <ChatAccordion />
        </>
     )
 }
