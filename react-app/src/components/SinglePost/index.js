@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { thunk_getPosts } from '../../store/posts';
 import { useParams, useHistory } from 'react-router-dom';
 import { thunk_getSinglePost, thunk_deletePost } from '../../store/posts';
 import CommentForm from '../CommentForm/index';
 import DeleteComment from '../DeleteComment/index';
 import EditCommentModal from '../EditCommentModal/index'
+
 
 
 function SinglePost() {
@@ -19,12 +19,13 @@ function SinglePost() {
 
     if (!user) user = 0;
 
-    const handleDelete = (id) => {
-        dispatch(thunk_deletePost(id))
-    }
+    const handleDelete = async (id) => {
+        await dispatch(thunk_deletePost(id));
+        history.goBack();
+    };
     
     const goBack = () => {
-        history.goBack()
+        history.goBack();
     };
 
     useEffect(() => {
@@ -50,14 +51,10 @@ function SinglePost() {
                 </div>
             ))}
         </div>
-            <button onClick={handleDelete(post?.id)}>Nuke this post!</button>
-        {/* {user ? <CommentForm postId={post.id} /> : null}
-        {user ? post.userId === user.id ? (
-                <button onClick={handleDelete(post?.id)}>Nuke this post!</button>
-        ): null : null} */}
-        {/* {post?.userId === user.id ? (
-            <button onClick={handleDelete(post?.id)}>Nuke this post!</button>
-        ) : null} */}
+         {user ? <CommentForm postId={post.id} /> : null}
+           {user ? post.userId === user.id ? (
+                <button onClick={() => handleDelete(post?.id)}>Nuke this post!</button>
+        ): null : null}
 
         </>
     )

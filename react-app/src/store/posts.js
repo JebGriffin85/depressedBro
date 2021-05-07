@@ -94,6 +94,7 @@ const postReducer = (state = {}, action) => {
 
         case DELETE_POST:
             delete state[action.payload]
+            return state;
 
         case GET_SINGLE_POST:
             return action.payload;
@@ -101,7 +102,7 @@ const postReducer = (state = {}, action) => {
         case ADD_POST:
             return { ...state, ...action.payload };
         default:
-            return state;
+            return { ...state };
     };
 };
 
