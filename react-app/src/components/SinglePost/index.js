@@ -50,10 +50,11 @@ function SinglePost() {
                 </div>
             ))}
         </div>
-        {user ? <CommentForm postId={post.id} /> : null}
+            <button onClick={handleDelete(post?.id)}>Nuke this post!</button>
+        {/* {user ? <CommentForm postId={post.id} /> : null}
         {user ? post.userId === user.id ? (
                 <button onClick={handleDelete(post?.id)}>Nuke this post!</button>
-        ): null : null}
+        ): null : null} */}
         {/* {post?.userId === user.id ? (
             <button onClick={handleDelete(post?.id)}>Nuke this post!</button>
         ) : null} */}
