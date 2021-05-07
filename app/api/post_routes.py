@@ -77,6 +77,22 @@ def edit_comment(commentId):
     return {'error': 'could not post'}
 
 
+@post_routes.route('<int:id>', methods=['PUT'])
+@login_required
+def edit_post(id):
+    current_post = Post.query.get(int(id))
+    user_id = current_user.get_id()
+    form = PostForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        current_post.title = form.data['title']
+        current_post.body = form.data['body']
+        db.session.add(current_post)
+        db.session.commit()
+        return {'message': 'success'}
+    return {'error': 'could not edit'}
+
+
 @post_routes.route('/user/<int:userId>')
 @login_required
 def user_posts(userId):

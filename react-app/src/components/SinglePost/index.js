@@ -4,7 +4,8 @@ import { useParams, useHistory } from 'react-router-dom';
 import { thunk_getSinglePost, thunk_deletePost } from '../../store/posts';
 import CommentForm from '../CommentForm/index';
 import DeleteComment from '../DeleteComment/index';
-import EditCommentModal from '../EditCommentModal/index'
+import EditCommentModal from '../EditCommentModal/index';
+import EditPostModal from '../EditPostModal/index';
 
 
 
@@ -53,7 +54,10 @@ function SinglePost() {
         </div>
          {user ? <CommentForm postId={post.id} /> : null}
            {user ? post.userId === user.id ? (
+               <>
+                <EditPostModal oldTitle={post.title} oldBody={post.body} postId={post.id}/>
                 <button onClick={() => handleDelete(post?.id)}>Nuke this post!</button>
+                </>
         ): null : null}
 
         </>
