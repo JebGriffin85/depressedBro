@@ -19,11 +19,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SimpleAccordion() {
-  const classes = useStyles();
+  // const classes = useStyles();
 
   return (
     <div className='accordion-container'>
-      <Accordion className='accordion'>
+      <Accordion>
           
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}

@@ -9,7 +9,7 @@ const Chat = () => {
     const messageEl = useRef(null);
     const [chatInput, setChatInput] = useState("");
     const [messages, setMessages] = useState([]);
-    const user = useSelector(state => state.session.user)
+    let user = useSelector(state => state.session.user)
 
     useEffect(() => {
         // open socket connection
@@ -24,6 +24,10 @@ const Chat = () => {
             socket.disconnect()
         })
     }, [])
+
+    if (!user) {
+        user = {firstname: 'Thad'}
+    }
     //referenced from stack https://stackoverflow.com/questions/25505778/automatically-scroll-down-chat-div
     useEffect(() => { //pushes chat messages down to bottom when adding a new message 
     if (messageEl) {
@@ -31,6 +35,8 @@ const Chat = () => {
         const { currentTarget: target } = event;
         target.scroll({ top: target.scrollHeight});
       });
+    } else {
+        return
     }
 }, [])
 
@@ -43,6 +49,7 @@ const Chat = () => {
         socket.emit("chat", { user: user.firstname, msg: chatInput });
         setChatInput("")
     }
+
 
     return (user && (
         <div>
