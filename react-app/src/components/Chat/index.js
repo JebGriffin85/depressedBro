@@ -52,7 +52,7 @@ const Chat = () => {
 
 
     return (user && (
-        <div>
+        <div className='main-container'>
             <div className='container' ref={messageEl}>
                 {messages.map((message, ind) => (
                     <div key={ind}>{`${message.user}: ${message.msg}`}</div>
@@ -60,11 +60,11 @@ const Chat = () => {
                 <div ref={messagesEndRef} />
             </div>
             <form onSubmit={sendChat}>
-                <input
+                <input className='text-input'
                     value={chatInput}
                     onChange={updateChatInput}
                 />
-                <button type="submit">Send</button>
+                {/* <button type="submit">Send</button> */}
             </form>
         </div>
     )

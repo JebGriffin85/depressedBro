@@ -23,16 +23,16 @@ export default function SimpleAccordion() {
 
   return (
     <div className='accordion-container'>
-      <Accordion>
+      <Accordion className='accordion-container2'>
           
-        <AccordionSummary
+        <AccordionSummary className='accordion-container1'
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
           <Typography >Live Bro Chat</Typography>
         </AccordionSummary>
-        <AccordionDetails>
+        <AccordionDetails className='accordion-container3'>
           <Typography>
             <Chat />
           </Typography>

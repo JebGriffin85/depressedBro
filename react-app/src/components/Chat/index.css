@@ -6,4 +6,16 @@
     width: 200px;
     border: 1px solid;
     align-items: center;
+    border-radius: 7px;
+    
+}
+
+.main-container{
+/* background: url('../../images/pinkorange.png') */
+
+}
+
+.text-input{
+    border-radius: 13px;
+    width: 97%;
 }

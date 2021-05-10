@@ -1,4 +1,12 @@
-/* TODO Add site wide styles */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab &family=PT+Sans+Narrow&display=swap');
+
+body{
+    font-family: 'Josefin Slab', serif;
+font-family: 'PT Sans Narrow', sans-serif;
+/* background: url('../src/images/white.png'); */
+}
+
 a{
     text-decoration: none;
+    color: black;
 }

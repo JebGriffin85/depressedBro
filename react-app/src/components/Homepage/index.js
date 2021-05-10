@@ -18,22 +18,26 @@ function Homepage() {
 
 
     return (
-        <>
-           <img className={styles.banner} src={banner}/>
         <div className={styles.mainContainer}>
-       <ChatAccordion />
+           {/* <img className={styles.banner} src={banner}/> */}
+        <div className={styles.innerMainContainer}>
+
        {reversedPosts.map((post) => (
-           
+           <div className={styles.innerContainer}>
+               <Link to={`/posts/${post.id}`}>
            <div className={styles.postDiv} key={post.id}>
-           <Link to={`/posts/${post.id}`}>
-            
            <img className={styles.avatar} src={post.avatar}/>
-           {post.title}
+            
+            <div className={styles.title}>{post.title}</div>
+           <br/>
+            {post.body?.slice(0, 25) + '...'}
+           </div>
            </Link>
            </div>
        ))}
        </div>
-       </>
+       <ChatAccordion />
+       </div>
     )
 }
 
