@@ -12,6 +12,7 @@ import { authenticate } from "./store/session";
 import Homepage from './components/Homepage/index';
 import SinglePost from './components/SinglePost/index';
 import ProfilePage from './components/ProfilePage/index';
+import Accordion from './components/Accordian/index';
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
+      <Accordion />
       <Switch>
         <Route path="/" exact={true}>
           <Homepage/>

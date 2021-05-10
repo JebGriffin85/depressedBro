@@ -6,11 +6,12 @@
 }
 
 .banner{
-  display:flex;
+
+}
+.outerDiv{
+  display: flex;
   align-items: center;
   justify-content: center;
-overflow:hidden;
-margin: -150px
 }
 
 
@@ -20,19 +21,6 @@ margin: -150px
   justify-content: center;
     flex-wrap: wrap;
 }
-
-/* .innerContainer{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-} */
-/* 
-.innerMainContainer{
-    justify-content: center;
-  align-items: center;
-  padding: 20px;
-  flex-wrap: wrap;
-} */
 
 .postDiv{
   display: flex;

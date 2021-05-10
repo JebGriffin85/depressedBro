@@ -6,6 +6,7 @@ import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import { useHistory } from "react-router-dom";
 import PostFormModal from '../../components/CreatePostModal';
+import styles from './NavBar.module.css';
 
 const NavBar = () => {
   const history = useHistory();
@@ -35,7 +36,7 @@ const NavBar = () => {
     );
   }
   return (
-    <nav >
+    <nav className={styles.nav} >
           <NavLink to="/">
             Home
           </NavLink>
