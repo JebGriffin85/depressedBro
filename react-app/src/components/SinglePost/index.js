@@ -6,7 +6,7 @@ import CommentForm from '../CommentForm/index';
 import DeleteComment from '../DeleteComment/index';
 import EditCommentModal from '../EditCommentModal/index';
 import EditPostModal from '../EditPostModal/index';
-
+import styles from './singlepost.module.css';
 
 
 function SinglePost() {
@@ -36,13 +36,28 @@ function SinglePost() {
 
     return(
         <>
-        <button onClick={goBack}>Go Back</button>
+        <div className={styles.pagenav}>
+        <a className={styles.goback} onClick={goBack}>Go Back</a>
+         {user ? post.userId === user.id ? (
+               <>
+                <EditPostModal oldTitle={post.title} oldBody={post.body} postId={post.id}/>
+                <a className={styles.deletepost} onClick={() => handleDelete(post?.id)}>Nuke this post!</a>
+                </>
+        ): null : null}
+
+
+        </div>
         <div>
-            <h3><img className="avatar" src={post?.avatar}/>{post?.title}</h3>
-            <p>{post?.body}</p>
+            <div className={styles.titleContainer}>
+                <img className={styles.mainavatar} src={post?.avatar}/>
+                <h3 className={styles.title}>{post?.title}</h3>
+                <p className={styles.firstlastname}>by {post.firstname} {post.lastname}</p>
+                <p className={styles.date}>{post.createdAt?.slice(4, 16)}</p>
+            </div>
+                <p>{post?.body}</p>
             {post?.comments?.map((comment) => (
                 <div key={comment?.id}>
-                <p ><img className="avatar" src={comment?.avatar} />
+                <p ><img className={styles.avatar} src={comment?.avatar} />
                 {comment?.body} {comment?.userId === user.id ? (
                     <>
                     <EditCommentModal id={comment.id} oldBody={comment.body} postId={post.id}/>
@@ -53,12 +68,7 @@ function SinglePost() {
             ))}
         </div>
          {user ? <CommentForm postId={post.id} /> : null}
-           {user ? post.userId === user.id ? (
-               <>
-                <EditPostModal oldTitle={post.title} oldBody={post.body} postId={post.id}/>
-                <button onClick={() => handleDelete(post?.id)}>Nuke this post!</button>
-                </>
-        ): null : null}
+          
 
         </>
     )

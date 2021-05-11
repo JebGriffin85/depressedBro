@@ -10,6 +10,7 @@ import { demoLogin } from '../../store/session';
 import styles from './NavBar.module.css';
 
 const NavBar = () => {
+
   const history = useHistory();
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);

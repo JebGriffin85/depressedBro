@@ -93,6 +93,7 @@ This is the backend for the Flask React project.
 
    heroku run -a {NAME_OF_HEROKU_APP} flask seed all
    ```
+   heroku run -a depressed-bro flask seed all
 
 10. Under Settings find "Config Vars" and add any additional/secret .env variables.
 
