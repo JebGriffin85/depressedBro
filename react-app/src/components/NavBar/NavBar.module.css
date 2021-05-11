@@ -9,8 +9,7 @@
 }
 
 .logout{
-    display: flex;
-    justify-content: flex-end;
+
     padding-right: 9px;
 }
 
@@ -50,6 +49,8 @@
 
 .home{
     padding-right: 9px;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 .home:hover{
@@ -62,6 +63,16 @@
 }
 
 .profile:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+.demo{
+    cursor:pointer;
+    padding-right: 9px;
+}
+
+.demo:hover {
     transform: scale(1.1);
     transition: transform 0.3s ease;
 }

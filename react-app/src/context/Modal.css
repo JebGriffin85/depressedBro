@@ -15,10 +15,16 @@
     right: 0;
     left: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(101, 90, 90, 0.4);
+    background: url(./chadback1.png);
+    background-repeat:repeat;
+    background-size:auto;
+    opacity: 0.1;
+
 }
 
 #modal-content {
     position: absolute;
-    background-color: white;
+    background-color: rgb(252, 255, 235);
+    border: 6px groove rgb(250, 177, 177, 0.4);
 }
