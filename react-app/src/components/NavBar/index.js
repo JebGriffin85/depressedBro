@@ -19,27 +19,41 @@ const NavBar = () => {
   if (sessionUser) {
     sessionLinks = (
       <>
-        <LogoutButton />
-        <PostFormModal />
-        <NavLink to='/profile'>
-          My Profile
-        </NavLink>
+        <div className={styles.logout}>
+          <NavLink to='/'>
+            <LogoutButton />
+          </NavLink>
+        </div>
+        <div className={styles.post}>
+          <PostFormModal />
+        </div>
+        <div className={styles.profile}>
+          <NavLink to='/profile'>
+            My Profile
+          </NavLink>
+        </div>
       </>
     );
   } else {
     sessionLinks = (
       <>
-        <LoginFormModal/>
-        <SignupFormModal/>
+        <div className={styles.login}>
+          <LoginFormModal/>
+        </div>
+        <div className={styles.signup}>
+          <SignupFormModal/>
+        </div>
 
       </>
     );
   }
   return (
     <nav className={styles.nav} >
-          <NavLink to="/">
-            Home
-          </NavLink>
+          <div className={styles.home}>
+            <NavLink to="/">
+              Home
+            </NavLink>
+          </div>
           
           {sessionLinks}
     </nav>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import styles from './signupform.module.css';
 
 const SignUpForm = () => {
   const dispatch = useDispatch();
@@ -49,9 +50,34 @@ const SignUpForm = () => {
   }
 
   return (
+    <div className={styles.formContainer}>
 
     <form onSubmit={onSignUp}>
-      <div>
+      <div className={styles.choosebro}>
+          <label>Choose Your Bro</label>
+          <br/>
+          <input type="radio" name="avatar" 
+          value="https://i.ibb.co/fHx1v4N/Screen-Shot-2021-05-05-at-10-14-43-AM.png"
+          onChange={updateAvatar} />
+         
+        <img className={styles.avatar} src="https://i.ibb.co/fHx1v4N/Screen-Shot-2021-05-05-at-10-14-43-AM.png" />
+          
+
+        <input type="radio" name="avatar"
+          value="https://i.ibb.co/V2WNZj2/Screen-Shot-2021-05-04-at-2-42-43-PM.png"
+          onChange={updateAvatar} />
+        
+          <img className={styles.avatar} src="https://i.ibb.co/V2WNZj2/Screen-Shot-2021-05-04-at-2-42-43-PM.png" />
+       
+
+        <input type="radio" name="avatar"
+          value="https://i.ibb.co/hgZWqxp/Screen-Shot-2021-05-04-at-2-42-56-PM.png"
+          onChange={updateAvatar} />
+        
+          <img className={styles.avatar} src="https://i.ibb.co/hgZWqxp/Screen-Shot-2021-05-04-at-2-42-56-PM.png" />
+        
+      </div>
+      <div className={styles.firstname}>
         <label>First Name</label>
         <select name="firstname" onChange={updateFirstname} value={firstname}>
           <option value='' disabled>select a name</option>
@@ -60,7 +86,7 @@ const SignUpForm = () => {
           <option value="Chris">Chris</option>
         </select>
       </div>
-      <div>
+      <div className={styles.lastname}> 
         <label>Last Name</label>
         <input
           type="text"
@@ -69,30 +95,8 @@ const SignUpForm = () => {
           value={lastname}
         ></input>
       </div>
-      <div>
-          <label>choose your bro</label>
-          <input type="radio" name="avatar" 
-          value="https://i.ibb.co/fHx1v4N/Screen-Shot-2021-05-05-at-10-14-43-AM.png"
-          onChange={updateAvatar} />
-         
-        <img className='avatar' src="https://i.ibb.co/fHx1v4N/Screen-Shot-2021-05-05-at-10-14-43-AM.png" />
-          
-
-        <input type="radio" name="avatar"
-          value="https://i.ibb.co/V2WNZj2/Screen-Shot-2021-05-04-at-2-42-43-PM.png"
-          onChange={updateAvatar} />
-        
-        <img className='avatar' src="https://i.ibb.co/V2WNZj2/Screen-Shot-2021-05-04-at-2-42-43-PM.png" />
-       
-
-        <input type="radio" name="avatar"
-          value="https://i.ibb.co/hgZWqxp/Screen-Shot-2021-05-04-at-2-42-56-PM.png"
-          onChange={updateAvatar} />
-        
-        <img className='avatar' src="https://i.ibb.co/hgZWqxp/Screen-Shot-2021-05-04-at-2-42-56-PM.png" />
-        
-      </div>
-      <div>
+      
+      <div className={styles.email}>
         <label>Email</label>
         <input
           type="text"
@@ -101,7 +105,7 @@ const SignUpForm = () => {
           value={email}
         ></input>
       </div>
-      <div>
+      <div className={styles.password}>
         <label>Password</label>
         <input
           type="password"
@@ -111,7 +115,7 @@ const SignUpForm = () => {
           value={password}
         ></input>
       </div>
-      <div>
+        <div className={styles.rpassword}>
         <label>Repeat Password</label>
         <input
           type="password"
@@ -122,9 +126,9 @@ const SignUpForm = () => {
           required={true}
         ></input>
       </div>
-      <button type="submit">Sign Up</button>
+      <button className={styles.submitbutton} type="submit">Sign Up</button>
     </form>
- 
+ </div>
   );
 };
 

@@ -1,0 +1,58 @@
+.signupLink{
+
+}
+
+.formContainer {
+
+     display: flex;
+    width: 300px;
+    margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  font-size:16px;
+  font-style: oblique;
+}
+
+.choosebro{
+    padding-bottom: 10px;
+}
+
+.avatar{
+  border-radius: 20%;
+  vertical-align: middle;
+  width: 45px;
+  height: 45px;
+}
+
+.firstname{
+    padding-bottom: 10px;
+     /* display: inline-block; */
+      width: 40%;
+
+}
+
+.lastname{
+      padding-bottom: 10px;
+
+      width: 40%;
+}
+
+.email{
+        padding-bottom: 10px;
+      width: 40%;
+}
+
+.password{
+     padding-bottom: 10px;
+      width: 40%;
+}
+
+.rpassword{
+         padding-bottom: 10px;
+      width: 40%;
+}
+
+.submitbutton:hover{
+      transform: scale(55);
+   transition: transform .3s ease;
+}

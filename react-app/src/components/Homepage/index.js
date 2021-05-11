@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { thunk_getPosts } from '../../store/posts';
 import { Link } from 'react-router-dom';
 import styles from './homepage.module.css';
-// import ChatAccordion from '../Accordian/index';
 import banner from './banner.png'
 
 function Homepage() {
@@ -21,6 +20,8 @@ function Homepage() {
         <>
         <div className={styles.outerDiv}>
             <img className={styles.banner} src={banner}/>
+        
+            <p>post your woes ~ help your bros</p>
         </div>
         <div className={styles.innerMainContainer}>
         
@@ -39,8 +40,7 @@ function Homepage() {
            </div>
        ))}
        </div>
-       {/* <ChatAccordion /> */}
-
+       <a >see more post...</a>
        </>
     )
 }

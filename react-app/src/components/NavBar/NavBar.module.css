@@ -1,3 +1,67 @@
 .nav{
-    /* z-index: 1; */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    border-bottom: 1px solid black;
+    margin: 10px 5px;
+    font-size:18px;
+}
+
+.logout{
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 9px;
+}
+
+.logout:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+.post{
+    cursor:pointer;
+    padding-right: 9px;
+}
+
+.post:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+.login{
+    cursor:pointer;
+    padding-right: 9px;
+}
+.login:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+.signup{
+    cursor:pointer;
+    padding-right: 9px;
+}
+
+.signup:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+.home{
+    padding-right: 9px;
+}
+
+.home:hover{
+  transform: scale(1.1);
+  transition: transform .3s ease;
+}
+
+.profile{
+    padding-right: 9px;
+}
+
+.profile:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
 }
