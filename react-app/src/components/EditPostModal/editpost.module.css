@@ -1,0 +1,16 @@
+.mainContainer{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+
+.textarea{
+    width: 200px;
+    height:200px;
+}
+
+.titlecontainer{
+    padding-bottom: 11px;
+}

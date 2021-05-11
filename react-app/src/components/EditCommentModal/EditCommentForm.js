@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { thunk_addComment } from "../../store/comment";
 import { useDispatch } from "react-redux";
 import { thunk_getSinglePost } from '../../store/posts';
-
+import styles from './editcomment.module.css';
 
 
 const EditCommentForm = ({ id, oldBody, setShowModal, postId }) => {
@@ -22,20 +22,22 @@ const EditCommentForm = ({ id, oldBody, setShowModal, postId }) => {
     };
 
   return (
-    <>
+    <div className={styles.mainContainer}>
       <form className="comment-form" onSubmit={submitComment}>
-        <label>
-          <input
+        <label className={styles.label}>Edit Your Comment </label>
+        <br/>
+          <input className={styles.titlecontainer}
             type="text"
             name="body"
             value={body}
             onChange={(e) => setBody(e.target.value)}
           />
+          <br/>
           <button type="submit">Submit</button>
-        </label>
+
 
       </form>
-    </>
+    </div>
   );
 };
 

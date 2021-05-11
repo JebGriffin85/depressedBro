@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { thunk_getSinglePost } from '../../store/posts';
-
+import styles from './editpost.module.css';
 
 
 const EditPostForm = ({ oldTitle, oldBody, setShowModal, postId }) => {
@@ -30,10 +30,12 @@ const EditPostForm = ({ oldTitle, oldBody, setShowModal, postId }) => {
   };
 
   return (
+    <div className={styles.mainContainer} >
     <form onSubmit={editPost}>
      
-      <div>
+      <div className={styles.titlecontainer}>
         <label htmlFor="title">Title</label>
+        <br/>
         <input
           name="email"
           type="text"
@@ -43,15 +45,18 @@ const EditPostForm = ({ oldTitle, oldBody, setShowModal, postId }) => {
       </div>
       <div>
         <label htmlFor="body">Fix Your Worries Bro!</label>
-        <textarea
+        <br/>
+        <textarea className={styles.textarea}
           name="body"
           type="textarea"
           value={body}
           onChange={updateBody}
         />
+        <br/>
         <button type="submit">Edit it Bro!</button>
       </div>
     </form>
+    </div>
   );
 };
 

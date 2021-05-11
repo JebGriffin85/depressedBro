@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { login } from "../../store/session";
-
+import styles from "./loginform.module.css";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -32,14 +32,14 @@ const LoginForm = () => {
   }
 
   return (
-    <div >
+    <div className={styles.formContainer}>
       <div>
         {errors.map((error) => (
           <div>{error}</div>
         ))}
       </div>
       <form onSubmit={onLogin}>
-        <div>
+        <div className={styles.email}>
           <label htmlFor="email">Email</label>
           <br />
           <input
@@ -52,10 +52,10 @@ const LoginForm = () => {
           />
         </div>
         <br />
-        <div>
+        <div className={styles.password}>
           <label htmlFor="password">Password</label>
           <br />
-          <input
+          <input 
            
             name="password"
             type="password"
@@ -63,8 +63,11 @@ const LoginForm = () => {
             value={password}
             onChange={updatePassword}
           />
+          <br/>
+          <div className={styles.button}>
 
           <button type="submit">Login</button>
+          </div>
         </div>
         <br />
       </form>

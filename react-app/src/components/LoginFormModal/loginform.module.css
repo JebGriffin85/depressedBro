@@ -1,0 +1,16 @@
+.formContainer{
+    display: flex;
+    height: 190px;
+}
+
+.email{
+    padding: 10px 0px 0px 10px;
+}
+
+.password{
+    padding: 10px;
+}
+
+.button{
+    padding-top: 10px;
+}

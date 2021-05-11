@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import  { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
 import { thunk_addPost } from '../../store/posts';
-
+import styles from './createpost.module.css';
 
 const PostForm = ({ setShowModal }) => {
   const history = useHistory();
@@ -33,14 +33,16 @@ const PostForm = ({ setShowModal }) => {
   }
 
   return (
+    <div className={styles.mainContainer}>
     <form onSubmit={submitPost}>
       <div>
         {errors.map((error) => (
           <div>{error}</div>
         ))}
       </div>
-      <div>
+      <div className={styles.titlecontainer}>
         <label htmlFor="title">Title</label>
+        <br/>
         <input
           name="email"
           type="text"
@@ -49,18 +51,21 @@ const PostForm = ({ setShowModal }) => {
           onChange={updateTitle}
         />
       </div>
-      <div>
+      <div >
         <label htmlFor="body">Write Your Worries Bro!</label>
-        <textarea
+        <br/>
+          <textarea className={styles.textarea}
           name="body"
           type="textarea"
           placeholder="let it out bro"
           value={body}
           onChange={updateBody}
         />
+        <br/>
         <button type="submit">Post it Bro!</button>
       </div>
     </form>
+    </div>
   );
 };
 
