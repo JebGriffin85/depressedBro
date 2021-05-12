@@ -15,8 +15,8 @@
 .avatar {
     border-radius: 50%;
     vertical-align: middle;
-    width: 45px;
-    height: 45px;
+    width: 37px;
+    height: 37px;
 }
 
 .title{
@@ -49,5 +49,16 @@ padding-right: 9px;
 }
 
 .pagenav{
+    display: flex;
     font-size: 18px;
+     /* border-bottom: 1px solid black; */
+     /* width: 15%; */
+}
+
+.postbody{
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+    display: flex;
+    margin: 20px 330px 0 330px;
 }

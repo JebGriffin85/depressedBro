@@ -4,8 +4,10 @@ import { thunk_getPosts } from '../../store/posts';
 import { Link } from 'react-router-dom';
 import styles from './homepage.module.css';
 import banner from './banner.png'
+import Axios from 'axios';
 
 function Homepage() {
+    const [joke, setJoke] = useState();
     const dispatch = useDispatch();
     const posts = useSelector((state) => state.postReducer);
     const reversedPosts = Object.values(posts).reverse();
@@ -13,11 +15,20 @@ function Homepage() {
 
     useEffect(() =>  {
         dispatch(thunk_getPosts())
+        // chuckNorris()
     }, [dispatch]);
 
+    const chuckNorris = () => {
+        return Axios.get('https://api.chucknorris.io/jokes/random?category=sport')
+            .then(res => {
+                console.log(res.data.value)
+                 setJoke(res.data.value)
+            })
+    }
 
     return (
         <>
+        {/* <p>joke: {joke}</p> */}
         <div className={styles.outerDiv}>
             <img className={styles.banner} src={banner}/>
         

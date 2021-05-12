@@ -54,7 +54,7 @@ function SinglePost() {
                 <p className={styles.firstlastname}>by {post.firstname} {post.lastname}</p>
                 <p className={styles.date}>{post.createdAt?.slice(4, 16)}</p>
             </div>
-                <p>{post?.body}</p>
+                <p className={styles.postbody}>{post?.body}</p>
             {post?.comments?.map((comment) => (
                 <div key={comment?.id}>
                 <p ><img className={styles.avatar} src={comment?.avatar} />
