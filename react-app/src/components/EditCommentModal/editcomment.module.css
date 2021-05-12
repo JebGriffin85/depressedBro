@@ -18,3 +18,15 @@
 .label{
        padding: 11px;
 }
+
+.editbutton{
+cursor: pointer;
+font-size: 12px;
+/* padding-right: 9px; */
+
+}
+
+.editbutton:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}

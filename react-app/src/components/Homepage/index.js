@@ -15,7 +15,6 @@ function Homepage() {
 
     useEffect(() =>  {
         dispatch(thunk_getPosts())
-        // chuckNorris()
     }, [dispatch]);
 
     const chuckNorris = () => {

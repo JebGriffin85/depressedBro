@@ -15,8 +15,11 @@
 .avatar {
     border-radius: 50%;
     vertical-align: middle;
-    width: 37px;
-    height: 37px;
+    width: 27px;
+    height: 27px;
+    padding-right: 4px;
+    padding-top: 8px;
+    padding-left: 5px;
 }
 
 .title{
@@ -45,7 +48,11 @@
 .deletepost{
 cursor: pointer;
 padding-right: 9px;
+}
 
+.deletepost:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
 }
 
 .pagenav{
@@ -60,5 +67,45 @@ padding-right: 9px;
     justify-content: center;
     font-size: 19px;
     display: flex;
-    margin: 20px 330px 0 330px;
+    margin: 20px 300px 0 300px;
+}
+
+.outerCommentContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction:column;
+}
+
+.commentContainer{
+    Overflow-y:auto; 
+    overflow-x: hidden;
+    height: auto;
+    max-height: 360px;
+    display: flexbox;
+    width: 300px;
+    /* border: 1px groove rgb(249, 188, 188); */
+    align-items:center;
+    background-color: rgb(255, 255, 248);
+      word-wrap: break-word;
+}
+
+.innerComment{
+    margin:0;
+    padding: 0;
+    font: size 12px;
+}
+
+.commentbody{
+    padding-left: 7px;
+    margin: 0;
+    font-size: 18px;
+}
+
+.editdelete{
+    padding-left: 10px;
+}
+button{
+   height: 22px;
+   padding-top: 2px;
 }

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { thunk_addComment } from "../../store/comment";
 import { useDispatch } from "react-redux";
-
+import styles from './commentform.module.css';
 
 
 
@@ -23,8 +23,7 @@ const CommentForm = ({ postId }) => {
     <>
       <form className="comment-form" onSubmit={submitComment}>
         <label>
-          <button type="submit">Post</button>
-          <input
+          <input className={styles.input}
             placeholder='Add a comment'
             type="text"
             name="body"
@@ -32,6 +31,7 @@ const CommentForm = ({ postId }) => {
             onChange={(e) => setBody(e.target.value)}
           />
         </label>
+          <button  type="submit">Comment</button>
 
       </form>
     </>

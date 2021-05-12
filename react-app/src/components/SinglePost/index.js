@@ -55,20 +55,27 @@ function SinglePost() {
                 <p className={styles.date}>{post.createdAt?.slice(4, 16)}</p>
             </div>
                 <p className={styles.postbody}>{post?.body}</p>
+                <div className={styles.outerCommentContainer}>
+                <div className={styles.commentContainer}>
             {post?.comments?.map((comment) => (
-                <div key={comment?.id}>
-                <p ><img className={styles.avatar} src={comment?.avatar} />
-                {comment?.body} {comment?.userId === user.id ? (
+                <div key={comment.id}>
+                    <div className={styles.innerComment}><img className={styles.avatar} src={comment?.avatar} />
+                        {comment.firstname}
+                        <div className={styles.commentbody}>{comment?.body}</div>
+                {comment?.userId === user.id ? (
                     <>
+                    <div className={styles.editdelete}>
                     <EditCommentModal id={comment.id} oldBody={comment.body} postId={post.id}/>
                     <DeleteComment id={id} postId={post.id} commentId={comment.id} />
+                    </div>
                     </>
-                ) : null}</p>
+                ) : null}</div>
                 </div>
             ))}
-        </div>
+            </div>
          {user ? <CommentForm postId={post.id} /> : null}
-          
+        </div>
+            </div>
 
         </>
     )

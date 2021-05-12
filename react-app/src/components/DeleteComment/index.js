@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { thunk_getSinglePost } from '../../store/posts';
+import styles from './deletecomment.module.css';
 
 const DeleteComment = ({ postId, commentId, id }) => {
   const dispatch = useDispatch();
@@ -15,7 +16,7 @@ const DeleteComment = ({ postId, commentId, id }) => {
 
   return (
     <>
-      <button onClick={(event) => clickHandler(event)}> Delete </button>
+      <a className={styles.delete} onClick={(event) => clickHandler(event)}> Delete </a>
     </>
   );
 };
