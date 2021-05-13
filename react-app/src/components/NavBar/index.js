@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import LogoutButton from '../auth/LogoutButton';
@@ -10,7 +10,6 @@ import { demoLogin } from '../../store/session';
 import styles from './NavBar.module.css';
 
 const NavBar = () => {
-
   const history = useHistory();
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
@@ -18,6 +17,7 @@ const NavBar = () => {
   const demoChad = async () => {
     await dispatch(demoLogin())
   }
+
 
   let sessionLinks;
   if (sessionUser) {
@@ -54,7 +54,10 @@ const NavBar = () => {
     );
   }
   return (
+    <>
+    
     <nav className={styles.nav} >
+
           <div className={styles.home}>
             <NavLink to="/">
               Home
@@ -63,6 +66,7 @@ const NavBar = () => {
           
           {sessionLinks}
     </nav>
+    </>
   );
 }
 

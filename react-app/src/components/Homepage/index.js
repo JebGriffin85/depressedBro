@@ -4,30 +4,31 @@ import { thunk_getPosts } from '../../store/posts';
 import { Link } from 'react-router-dom';
 import styles from './homepage.module.css';
 import banner from './banner.png'
-import Axios from 'axios';
+import chuck2 from './chuck2.png'
 
 function Homepage() {
-    const [joke, setJoke] = useState();
+    const [joke, setJoke] = useState('Click Chuck to feel better');
     const dispatch = useDispatch();
     const posts = useSelector((state) => state.postReducer);
     const reversedPosts = Object.values(posts).reverse();
     let user = useSelector((state) => state.session.user);
 
+    const chuckFetch = async () => {
+        const res = await fetch('https://api.chucknorris.io/jokes/random?category=history')
+        const data = await res.json();
+        setJoke(data.value)
+    }
+
+
     useEffect(() =>  {
         dispatch(thunk_getPosts())
+        // chuckFetch()
     }, [dispatch]);
 
-    const chuckNorris = () => {
-        return Axios.get('https://api.chucknorris.io/jokes/random?category=sport')
-            .then(res => {
-                console.log(res.data.value)
-                 setJoke(res.data.value)
-            })
-    }
 
     return (
         <>
-        {/* <p>joke: {joke}</p> */}
+            <img className={styles.chuck} src={chuck2} onClick={() => chuckFetch()} />{joke}
         <div className={styles.outerDiv}>
             <img className={styles.banner} src={banner}/>
         
