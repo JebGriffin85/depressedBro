@@ -17,7 +17,7 @@ const PostForm = ({ setShowModal }) => {
      const payload = { title, body }
      await dispatch(thunk_addPost(payload))
      setShowModal(false);
-     history.push('/')
+    //  history.goBack();
   }
 
   const updateTitle = (e) => {
