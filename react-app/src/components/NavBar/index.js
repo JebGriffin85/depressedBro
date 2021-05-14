@@ -8,6 +8,7 @@ import { useHistory } from "react-router-dom";
 import PostFormModal from '../../components/CreatePostModal';
 import { demoLogin } from '../../store/session';
 import styles from './NavBar.module.css';
+import Footer from '../Footer/index';
 
 const NavBar = () => {
   const history = useHistory();
@@ -55,9 +56,9 @@ const NavBar = () => {
   }
   return (
     <>
-    
+    <Footer className={styles.footer} />
     <nav className={styles.nav} >
-
+ 
           <div className={styles.home}>
             <NavLink to="/">
               Home

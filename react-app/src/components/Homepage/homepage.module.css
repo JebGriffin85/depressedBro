@@ -56,7 +56,7 @@ margin-bottom: 45px;
 
 .chuck {
     margin: 0;
-    padding: 0;
+    padding-left: 18px;
     height: 25px;
     cursor:pointer;
     margin-bottom: -4px;
@@ -66,7 +66,7 @@ margin-bottom: 45px;
 }
 
 .chuck:hover{
-    transform: scale(2.5);
+    transform: scale(5.5);
     transition: transform 0.3s ease;
    
 }

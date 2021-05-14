@@ -51,7 +51,6 @@ function Homepage() {
            </div>
        ))}
        </div>
-       <a >see more post...</a>
        </>
     )
 }
