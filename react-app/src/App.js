@@ -8,6 +8,8 @@ import Homepage from './components/Homepage/index';
 import SinglePost from './components/SinglePost/index';
 import ProfilePage from './components/ProfilePage/index';
 import Accordion from './components/Accordian/index';
+import ButtonPage from './components/ButtonPage/index';
+import Phase2 from './components/Phase2/index';
 
 function App() {
 
@@ -39,6 +41,12 @@ function App() {
         <ProtectedRoute path='/profile'>
           <ProfilePage/>
         </ProtectedRoute>
+        <Route path='/phase1'>
+          <ButtonPage />
+        </Route>
+        <Route path='/p111555444333'>
+          <Phase2 />
+        </Route>
       </Switch>
     </BrowserRouter>
   );
