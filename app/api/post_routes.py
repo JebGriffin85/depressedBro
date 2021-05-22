@@ -5,14 +5,21 @@ from app.forms import PostForm, CommentForm
 
 post_routes = Blueprint('posts', __name__)
 
-
+#get 24 post for homepage
 @post_routes.route('')
 def get_posts():
     res = Post.query.order_by(Post.createdAt.desc()).limit(24).all()
     return {'posts': [post.to_dict() for post in res]}
 
 
-@post_routes.route('', methods=['POST'])
+#get all post 
+@post_routes.route('/all')
+def get_all_posts():
+    res = Post.query.all()
+    return {'posts': [post.to_dict() for post in res]}
+
+
+@post_routes.route('', methods=['POST']) 
 @login_required
 def create_post():
     user_id = current_user.get_id()
