@@ -10,6 +10,7 @@ import ProfilePage from './components/ProfilePage/index';
 import Accordion from './components/Accordian/index';
 import ButtonPage from './components/ButtonPage/index';
 import Phase2 from './components/Phase2/index';
+import AllPosts from './components/AllPosts/index';
 
 function App() {
 
@@ -41,6 +42,9 @@ function App() {
         <ProtectedRoute path='/profile'>
           <ProfilePage/>
         </ProtectedRoute>
+        <Route path='/allposts'>
+          <AllPosts />
+        </Route>
         <Route path='/phase1'>
           <ButtonPage />
         </Route>

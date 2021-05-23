@@ -10,7 +10,7 @@ function Homepage() {
     const [joke, setJoke] = useState('Click Chuck to feel better');
     const dispatch = useDispatch();
     const posts = useSelector((state) => state.postReducer);
-    const reversedPosts = Object.values(posts).reverse();
+    const reversedPosts = Object.values(posts).reverse().slice(0, 24);
     let user = useSelector((state) => state.session.user);
 
     const chuckFetch = async () => {
@@ -22,7 +22,6 @@ function Homepage() {
 
     useEffect(() =>  {
         dispatch(thunk_getPosts())
-        // chuckFetch()
     }, [dispatch]);
 
 
