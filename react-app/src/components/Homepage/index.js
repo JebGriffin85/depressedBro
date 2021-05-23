@@ -50,6 +50,7 @@ function Homepage() {
            </div>
        ))}
        </div>
+       <Link to={'/allposts'}>See all posts</Link>
        </>
     )
 }
