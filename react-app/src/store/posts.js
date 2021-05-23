@@ -3,6 +3,12 @@ const GET_SINGLE_POST = 'post/GET_SINGLE_POST';
 const ADD_POST = 'post/ADD_POST';
 const GET_USER_POST = 'post/GET_USER_POST';
 const DELETE_POST = 'post/DELETE_POST';
+const GET_ALL_POSTS = 'post/GET_ALL_POSTS';
+
+const getAllPosts = (posts) => ({
+    type: GET_ALL_POSTS,
+    payload: posts
+});
 
 const deletePost = (post) => {
     return ({
@@ -45,6 +51,13 @@ export const thunk_getUserPosts = (id) => async (dispatch) => {
     dispatch(getUserPost(data));
 };
 
+export const thunk_getAllPosts = () => async (dispatch) => {
+    const res = await fetch('/api/posts/all');
+    const data = await res.json();
+    if (data.errors) return;
+    dispatch(getAllPosts(data));
+};
+
 export const thunk_getPosts = () => async (dispatch) => {
     const res = await fetch('/api/posts');
     const data = await res.json();
@@ -78,6 +91,14 @@ const postReducer = (state = {}, action) => {
         
         case GET_POSTS:
         const posts = action.payload.posts;
+        const allPosts = {}
+        for (const post of posts) {
+            allPosts[post.id] = post;
+        };
+        return allPosts;
+
+        case GET_ALL_POSTS:
+        const posts = action.payload.posts
         const allPosts = {}
         for (const post of posts) {
             allPosts[post.id] = post;

@@ -19,7 +19,7 @@ def get_all_posts():
     return {'posts': [post.to_dict() for post in res]}
 
 
-@post_routes.route('', methods=['POST']) 
+@post_routes.route('', methods=['POST'])
 @login_required
 def create_post():
     user_id = current_user.get_id()
