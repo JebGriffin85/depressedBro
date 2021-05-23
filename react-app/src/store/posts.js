@@ -98,12 +98,12 @@ const postReducer = (state = {}, action) => {
         return allPosts;
 
         case GET_ALL_POSTS:
-        const posts = action.payload.posts
-        const allPosts = {}
-        for (const post of posts) {
-            allPosts[post.id] = post;
+        const getAllPosts = action.payload.posts
+        const allPostsPage = {}
+        for (const post of getAllPosts) {
+            allPostsPage[post.id] = post;
         };
-        return allPosts;
+        return allPostsPage;
 
         case GET_USER_POST:
         const newPosts = action.payload.posts;
