@@ -1,0 +1,23 @@
+.goback {
+    cursor: pointer;
+    padding-right: 9px;
+    font-size: 20px;
+}
+
+/* .goback:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+} */
+
+.commentContainer {
+    Overflow-y: auto;
+    overflow-x: hidden;
+    height: auto;
+    max-height: 360px;
+    display: flexbox;
+    width: 300px;
+    /* border: 1px groove rgb(249, 188, 188); */
+    align-items: center;
+    background-color: rgb(255, 255, 248);
+    word-wrap: break-word;
+}

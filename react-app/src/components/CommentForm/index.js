@@ -29,6 +29,7 @@ const CommentForm = ({ postId }) => {
             name="body"
             value={body}
             onChange={(e) => setBody(e.target.value)}
+            required={true}
           />
         </label>
           <button  type="submit">Comment</button>

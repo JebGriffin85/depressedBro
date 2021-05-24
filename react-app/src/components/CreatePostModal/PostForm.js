@@ -49,6 +49,7 @@ const PostForm = ({ setShowModal }) => {
           placeholder=''
           value={title}
           onChange={updateTitle}
+          required={true}
         />
       </div>
       <div >
@@ -60,6 +61,7 @@ const PostForm = ({ setShowModal }) => {
           placeholder="let it out bro"
           value={body}
           onChange={updateBody}
+          required={true}
         />
         <br/>
         <button type="submit">Post it Bro!</button>
