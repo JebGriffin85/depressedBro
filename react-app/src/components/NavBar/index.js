@@ -56,7 +56,7 @@ const NavBar = () => {
     );
   }
   return (
-    <>
+    <div className={styles.outerDiv}>
     <Footer className={styles.footer} />
     <nav className={styles.nav} >
  
@@ -68,7 +68,7 @@ const NavBar = () => {
           
           {sessionLinks}
     </nav>
-    </>
+    </div>
   );
 }
 
