@@ -13,11 +13,27 @@
     Overflow-y: auto;
     overflow-x: hidden;
     height: auto;
-    max-height: 360px;
+    max-height: 450px;
     display: flexbox;
     width: 300px;
     /* border: 1px groove rgb(249, 188, 188); */
     align-items: center;
-    background-color: rgb(255, 255, 248);
+    background-color: rgb(255, 255, 227);
     word-wrap: break-word;
+    border: 1px solid
+}
+
+.outercontainer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title:hover{
+    background-color:rgb(250, 150, 150);
+}
+
+.allposts{
+    font-size: 20px;
 }

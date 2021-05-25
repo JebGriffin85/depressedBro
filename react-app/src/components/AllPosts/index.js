@@ -21,12 +21,16 @@ function AllPosts () {
     return (
         <>
         <p className={styles.goback} onClick={goBack}>Go Back</p>
+          <div className={styles.outercontainer}>
+              <div className={styles.allposts}>All Posts</div>
+              
             <div className={styles.commentContainer}>
-        {allPosts.map((post) => (
+               {allPosts.map((post) => (
                <Link to={`/posts/${post.id}`}>
-                 <div>{post.title}</div>
+                 <div className={styles.title}>{post.title}</div>
                </Link>
        ))}
+            </div>
             </div>
         </>
     )
