@@ -11,6 +11,7 @@ import Accordion from './components/Accordian/index';
 import ButtonPage from './components/ButtonPage/index';
 import Phase2 from './components/Phase2/index';
 import AllPosts from './components/AllPosts/index';
+import ShowSearchResults from './components/SearchResults/index';
 
 function App() {
 
@@ -44,6 +45,9 @@ function App() {
         </ProtectedRoute>
         <Route path='/allposts'>
           <AllPosts />
+        </Route>
+        <Route path='/search/:query'>
+          <ShowSearchResults />
         </Route>
         <Route path='/phase1'>
           <ButtonPage />

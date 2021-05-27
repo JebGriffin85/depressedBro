@@ -9,6 +9,7 @@ import PostFormModal from '../../components/CreatePostModal';
 import { demoLogin } from '../../store/session';
 import styles from './NavBar.module.css';
 import Footer from '../Footer/index';
+import SearchBar from '../SearchBar/index.js'
 
 const NavBar = () => {
   const history = useHistory();
@@ -59,7 +60,7 @@ const NavBar = () => {
     <div className={styles.outerDiv}>
     <Footer className={styles.footer} />
     <nav className={styles.nav} >
- 
+          <SearchBar />
           <div className={styles.home}>
             <NavLink to="/">
               Home
