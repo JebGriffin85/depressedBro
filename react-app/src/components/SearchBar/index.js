@@ -14,7 +14,6 @@ const SearchBar = () => {
 
     const submitSearch = (e) => {
         e.preventDefault();
-        // return <Redirect to={`/search/${search}`} />
         setSearch('')
         dispatch(thunk_getPostsSearch(search))
         return history.push(`/search/${search}`)
@@ -25,7 +24,7 @@ const SearchBar = () => {
           type='text'
           onChange={updateSearch}
           value={search}
-          
+          placeholder='search for posts'
           ></input>
 
 

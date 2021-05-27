@@ -1,0 +1,77 @@
+.avatar {
+    border-radius: 50%;
+    vertical-align: middle;
+    width: 35px;
+    height: 35px;
+}
+
+.banner {
+    margin-top: 10px;
+    margin-bottom: 45px;
+}
+.outerDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.innerMainContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.postDiv {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    object-fit: cover;
+    border-style: solid;
+    border-width: 0.5px;
+    margin: 5px;
+    box-sizing: border-box;
+    width: 200px;
+    min-height: 100 %px;
+    background: url('../../images/grad.jpeg');
+    object-fit: cover;
+}
+
+.postDiv:hover {
+    box-shadow: 0 0 11px rgba(0, 195, 255, 0.591);
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+.title {
+
+    justify-content: center;
+    font-weight: bolder;
+    margin-bottom: -20px;
+
+}
+
+.chuck {
+    margin: 0 0 -4px;
+    padding-left: 18px;
+    height: 25px;
+    cursor: pointer;
+    /* justify-content: flex-end;
+    align-items: flex-start;
+    display: flex; */
+}
+
+.chuck:hover {
+    transform: scale(5.5);
+    transition: transform 0.3s ease;
+
+}
+
+.allPosts {
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    padding-top: 20px;
+}

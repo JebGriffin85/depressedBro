@@ -60,7 +60,10 @@ const NavBar = () => {
     <div className={styles.outerDiv}>
     <Footer className={styles.footer} />
     <nav className={styles.nav} >
+          <div className={styles.search}>
+
           <SearchBar />
+          </div>
           <div className={styles.home}>
             <NavLink to="/">
               Home

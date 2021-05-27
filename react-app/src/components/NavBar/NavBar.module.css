@@ -77,3 +77,7 @@
     transition: transform 0.3s ease;
 }
 
+.search{
+    padding-right: 9px;
+    padding-bottom: 3px;
+}
