@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { Redirect, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux'
 import { thunk_getPostsSearch } from '../../store/search.js';
+import styles from './searchbar.module.css';
+
+
 const SearchBar = () => {
 
     const dispatch = useDispatch();
@@ -20,11 +23,11 @@ const SearchBar = () => {
     }
     return (
     <form onSubmit={submitSearch} >
-        <input 
+        <input className={styles.input}
           type='text'
           onChange={updateSearch}
           value={search}
-          placeholder='search for posts'
+          placeholder='search for posts...'
           ></input>
 
 
