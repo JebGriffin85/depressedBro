@@ -51,7 +51,7 @@ const NavBar = () => {
           <SignupFormModal/>
         </div>
        <div className={styles.demo}>
-         <a onClick={demoChad}>Demo Chad</a>
+         <a onClick={demoChad}>Demo Login</a>
        </div>
       </>
     );

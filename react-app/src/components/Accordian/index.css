@@ -9,16 +9,20 @@
     right: 0;
     padding: 0;
     margin: 0;
-    background: url('../../images/pinkorange.png')
+    /* background: url('../../images/pinkorange.png') */
+    background-color: #A91414
 }
 
 .accordion-container1{
-    background: url('../../images/pinkorange.png')
+    /* background: url('../../images/pinkorange.png'); */
+   background-color: #FD7777
 }
-/* .accordion-container2 {
-    background: url('../../images/pinkorange.png')
-} */
+.accordion-container2 {
+    /* background: url('../../images/pinkorange.png') */
+    background-color: #A91414
+}
 
 .accordion-container3 {
-    background: url('../../images/white.png')
+    /* background: url('../../images/white.png') */
+    /* background-color: #A91414 */
 }
