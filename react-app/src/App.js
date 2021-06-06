@@ -10,6 +10,7 @@ import ProfilePage from './components/ProfilePage/index';
 import Accordion from './components/Accordian/index';
 import AllPosts from './components/AllPosts/index';
 import ShowSearchResults from './components/SearchResults/index';
+import Splash from './components/Splash/index';
 
 function App() {
 
@@ -29,22 +30,34 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
-      <Accordion />
+  
       <Switch>
         <Route path="/" exact={true}>
-          <Homepage/>
+          <Splash/>
+        </Route>
+        <Route path="/home" exact={true}>
+          <NavBar />
+          <Accordion />
+          <Homepage />
         </Route>
         <Route path='/posts/:id' exact={true}>
+          <NavBar />
+          <Accordion />
           <SinglePost />
         </Route>
         <ProtectedRoute path='/profile'>
+          <NavBar />
+          <Accordion />
           <ProfilePage/>
         </ProtectedRoute>
         <Route path='/allposts'>
+          <NavBar />
+          <Accordion />
           <AllPosts />
         </Route>
         <Route path='/search/:query'>
+          <NavBar />
+          <Accordion />
           <ShowSearchResults />
         </Route>
       </Switch>

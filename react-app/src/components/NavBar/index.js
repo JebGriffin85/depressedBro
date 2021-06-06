@@ -35,7 +35,7 @@ const NavBar = () => {
           </NavLink>
         </div>
         <div className={styles.logout}>
-          <NavLink to='/'>
+          <NavLink to='/home'>
             <LogoutButton />
           </NavLink>
         </div>
@@ -65,7 +65,7 @@ const NavBar = () => {
           <SearchBar />
           </div>
           <div className={styles.home}>
-            <NavLink to="/">
+            <NavLink to="/home">
               Home
             </NavLink>
           </div>
