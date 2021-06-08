@@ -49,9 +49,12 @@
     font-size: 20px
 }
 
+.posttitle{
+    text-decoration: underline;
+}
 .posttitle:hover{
 transform: scale(1.1);
 transition: transform 0.3s ease;
 text-shadow: 2px 2px rgb(255, 223, 223);
-
+text-decoration: none;
 }
