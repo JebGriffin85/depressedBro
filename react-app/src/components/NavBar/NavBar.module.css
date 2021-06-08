@@ -6,11 +6,16 @@
     border-bottom: 1px solid black;
     margin: 10px 5px;
     font-size:18px;
+    
 }
 
 .logout{
-
+  color: white;
     padding-right: 9px;
+}
+
+.outerDiv{
+   
 }
 
 .logout:hover {
