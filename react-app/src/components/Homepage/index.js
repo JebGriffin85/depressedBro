@@ -44,7 +44,9 @@ function Homepage() {
             
             <div className={styles.title}>{post.title}</div>
            <br/>
+             <div className={styles.postBody}>
             {post.body?.slice(0, 25) + '...'}
+            </div>
            </div>
            </Link>
            </div>
