@@ -12,9 +12,13 @@
     /* background: url('../../images/pinkorange.png') */
     background-color: #A91414
 }
+.text{
+    color: white;
+    font-weight: bold;
+}
 
 .accordion-container1{
-    /* background: url('../../images/pinkorange.png'); */
+    background: url('../../images/pinkorange.png');
    background-color: #FD7777
 }
 .accordion-container2 {

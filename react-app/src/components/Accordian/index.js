@@ -30,7 +30,7 @@ export default function SimpleAccordion() {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography >Live Bro Chat</Typography>
+          <Typography className='text'>Live Bro Chat</Typography>
         </AccordionSummary>
         <AccordionDetails className='accordion-container3'>
           <Typography>
