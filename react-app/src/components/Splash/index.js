@@ -14,7 +14,7 @@ export default function Splash () {
         <>
         <div className='outer'>
         </div>
-        <div className="main">
+        <div className="main"> {/*cloud used from codepen.com */}
             <img src={banner}></img>
 <div className="rainy-weather">
 <div className="cloud-main"></div>
